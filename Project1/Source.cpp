@@ -1,8 +1,8 @@
+#include <string>
 #include <iostream>
 #include <vector>
 #include <ctime>
 #include <clocale> // Include the clocale library
-
 using namespace std;
 
 const int BOARD_SIZE = 10;
@@ -70,13 +70,22 @@ public:
     }
 
     void print() {
-        for (auto row : cells) {
+        string letters = "abcdefghjk";
+        int i = 0;
+        cout << "  0 1 2 3 4 5 6 7 8 9" << endl;
+
+            
+           
+           for (auto row : cells) {
+               i++;
+               cout << letters[i - 1] << " ";
             for (auto cell : row) {
                 if (cell.isHit) {
                     cout << (cell.hasShip ? "X" : "-") << " ";
                 }
                 else {
                     cout << "~ ";
+                    cout << (cell.hasShip ? "X" : "-") << " ";
                 }
             }
             cout << endl;
@@ -150,9 +159,14 @@ int main() {
     board.placeShip(5, 7);
 
     while (!board.isGameOver()) {
-        int x, y;
+        int x=0, y=0;
+        string s;
         cout <<"Enter attack coordinates (x, y): ";
-        cin >> x >> y;
+        getline(cin,s);
+        x = s[0] - 'a';
+        y = s[2] - '0';
+        
+        cout << x << " " << y << endl;
 
         if (x < 0 || x >= BOARD_SIZE || y < 0 || y >= BOARD_SIZE) {
             cout << "Coordinates are incorrect. Try again." << endl;
@@ -163,6 +177,7 @@ int main() {
             cout <<"Hit!" << endl;
         }
         else {
+        
             cout <<"Miss!" << endl;
         }
 

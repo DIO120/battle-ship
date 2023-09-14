@@ -1,23 +1,18 @@
-#include<fstream>
-#include<iostream>
+#include <iostream>
+#include <string>
 using namespace std;
-
 int main() {
-    
-    int n = 0;
-    ifstream f("e:\\data.txt");
-    while (!f.eof()) {    // End Of File
-        f >> a[n];
-        n++;
+    setlocale(LC_ALL, "ru");
+    string str = "Дана строка символов. Заменить в ней все пробелы на таблиции";
+
+    // Проходим по каждому символу строки и заменяем пробелы на '\t'
+    for (char& c : str) {
+        if (c == ' ') {
+            c = '\t';
+        }
     }
-    f.close();
 
-    int s = 0;
-    for (size_t i = 0; i < n; i++)
-        s = s + a[i];
-
-    cout << "Sa=" << double(s) / n << endl;
-    cout << "n=" << n << endl;
+    cout << "Результат: " << str << std::endl;
 
     return 0;
 }

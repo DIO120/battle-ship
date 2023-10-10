@@ -129,9 +129,9 @@ public:
 
     void set() {
         srand(time(NULL));
-        int numShips = 10; // Общее количество кораблей для размещения
+        int numShips = 10; // Total number of ships to deploy
 
-        // Размещаем 1-палубные корабли
+        //  We place 1 - deck ships
         while (numShips > 0) {
             int x = rand() % BOARD_SIZE;
             int y = rand() % BOARD_SIZE;
@@ -142,10 +142,10 @@ public:
             }
         }
 
-        // Размещаем 2-палубные корабли
+        // We place 2 - deck ships
         numShips = 3;
         while (numShips > 0) {
-            int x = rand() % (BOARD_SIZE - 1); // Учитываем границы доски
+            int x = rand() % (BOARD_SIZE - 1); // Taking into account the boundaries of the board
             int y = rand() % BOARD_SIZE;
 
             if (x >= 0 && x < BOARD_SIZE - 1 && y >= 0 && y < BOARD_SIZE && !cells[x][y].hasShip && !cells[x + 1][y].hasShip) {
@@ -155,10 +155,10 @@ public:
             }
         }
 
-        // Размещаем 3-палубные корабли
+        // We place 3 - deck ships
         numShips = 2;
         while (numShips > 0) {
-            int x = rand() % (BOARD_SIZE - 2); // Учитываем границы доски
+            int x = rand() % (BOARD_SIZE - 2); //Taking into account the boundaries of the board
             int y = rand() % BOARD_SIZE;
 
             if (x >= 0 && x < BOARD_SIZE - 2 && y >= 0 && y < BOARD_SIZE && !cells[x][y].hasShip && !cells[x + 1][y].hasShip && !cells[x + 2][y].hasShip) {
@@ -169,10 +169,10 @@ public:
             }
         }
 
-        // Размещаем 4-палубный корабль
+        // We place 2 - deck ships
         numShips = 1;
         while (numShips > 0) {
-            int x = rand() % (BOARD_SIZE - 3); // Учитываем границы доски
+            int x = rand() % (BOARD_SIZE - 3); // Taking into account the boundaries of the board
             int y = rand() % BOARD_SIZE;
 
             if (x >= 0 && x < BOARD_SIZE - 3 && y >= 0 && y < BOARD_SIZE && !cells[x][y].hasShip && !cells[x + 1][y].hasShip && !cells[x + 2][y].hasShip && !cells[x + 3][y].hasShip) {

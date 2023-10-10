@@ -81,11 +81,11 @@ public:
                cout << letters[i - 1] << " ";
             for (auto cell : row) {
                 if (cell.isHit) {
-                    cout << (cell.hasShip ? "X" : "-") << " ";
+                    cout << (cell.hasShip ? "X" : "O") << " ";
                 }
                 else {
-                    cout << "~ ";
-                    cout << (cell.hasShip ? "X" : "-") << " ";
+                   cout << "~ ";
+                   cout << (cell.hasShip ? "X" : "-") << " ";
                 }
             }
             cout << endl;
